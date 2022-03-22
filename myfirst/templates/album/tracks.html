@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{album.album}}{% endblock %}
+
+{% block content %}
+
+    <h1>{{album.album}}</h1>
+
+    {% if latest_tracks %}
+
+        {% for c in latest_tracks %}
+            <a href='{% url "album:track" c.id %}'><br>{{c.track}}</br></a>
+        {% endfor %}
+
+    {% else %}
+        Треков пока нет
+    {% endif %}
+
+
+{% endblock %}

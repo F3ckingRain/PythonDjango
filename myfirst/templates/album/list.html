@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Все альбомы{% endblock %}
+
+{% block content %}
+
+    {% if latest_album_list %}
+
+        {% for a in latest_album_list %}
+            <a href='{% url "album:detail" a.id %}'>{{a.album}}</a>
+        {% endfor %}
+
+    {% else %}
+        Альбомов пока нет
+    {% endif %}
+
+
+{% endblock %}
